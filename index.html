@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mugiez Hotel And Apartments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      height: 70px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      position: relative;
+    }
+
+    .logo-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo-text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-name {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-name span {
+      color: #C0392B;
+    }
+
+    .logo-tagline {
+      color: #C0392B;
+      font-size: 9px;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #E74C3C;
+    }
+
+    .nav-links a.active {
+      color: #E74C3C;
+      border-bottom: 2px solid #E74C3C;
+      padding-bottom: 2px;
+    }
+
+    .nav-phone-btn {
+      background-color: #C0392B;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-phone-btn i {
+      font-size: 14px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      background-color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Food image panels left and right */
+    .hero-img-left,
+    .hero-img-right {
+      position: absolute;
+      top: 0;
+      width: 32%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.65;
+    }
+
+    .hero-img-left {
+      left: 0;
+    }
+
+    .hero-img-right {
+      right: 0;
+    }
+
+    /* Dark overlay gradient on sides to blend */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        linear-gradient(to right, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.95) 70%, rgba(10,10,10,0.3) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    /* Center logo */
+    .hero-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .hero-logo-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 4px;
+    }
+
+    .hero-logo-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-logo-name {
+      color: #fff;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-logo-name span {
+      color: #E74C3C;
+    }
+
+    .hero-logo-tag {
+      color: #aaa;
+      font-size: 11px;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* Cutlery divider */
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 18px auto;
+    }
+
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 1px;
+      background: #C0392B;
+    }
+
+    .hero-divider i {
+      color: #C0392B;
+      font-size: 20px;
+    }
+
+    /* Hero headline */
+    .hero-title {
+      color: #fff;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .hero-title .red {
+      color: #E74C3C;
+      display: block;
+    }
+
+    .hero-subtitle {
+      color: #ccc;
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* Nav pills row */
+    .hero-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .hero-pill {
+      border: 1.5px solid rgba(255,255,255,0.7);
+      background: transparent;
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .hero-pill:hover {
+      background: #C0392B;
+      border-color: #C0392B;
+    }
+
+    .hero-pill i {
+      font-size: 14px;
+    }
+
+    .hero-pills a{
+      text-decoration: none;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #C0392B;
+      color: #fff;
+      border: none;
+      padding: 16px 44px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: #A93226;
+    }
+
+    /* ===== INFO STRIP ===== */
+    .info-strip {
+      background: #f5f3ef;
+      display: flex;
+      align-items: stretch;
+      padding: 28px 30px;
+      gap: 0;
+    }
+
+    .info-contact {
+      min-width: 220px;
+      padding-right: 30px;
+    }
+
+    .info-contact h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 14px;
+    }
+
+    .contact-phone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .phone-circle {
+      width: 32px;
+      height: 32px;
+      background: #C0392B;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .phone-circle i {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .contact-phone span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .social-icon:hover { opacity: 0.85; }
+
+    .social-icon i {
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .si-wa  { background: #25D366; }
+    .si-tw  { background: #1DA1F2; }
+    .si-ig  { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+    .info-copyright {
+      font-size: 11px;
+      color: #777;
+    }
+
+    /* Divider line */
+    .info-divider {
+      width: 1px;
+      background: #ddd;
+      margin: 0 30px;
+      align-self: stretch;
+    }
+
+    /* Feature icons */
+    .info-features {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 10px;
+    }
+
+    .feature-item {
+      text-align: center;
+      flex: 1;
+    }
+.social-icons a{
+  text-decoration: none;
+}
+    .feature-circle {
+      width: 58px;
+      height: 58px;
+      background: #8B1A1A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+
+    .feature-circle i {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .feature-item h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .feature-item p {
+      font-size: 11px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* ===== BOTTOM BAR ===== */
+    .bottom-bar {
+      background: #222;
+      text-align: center;
+      padding: 12px;
+      color: #bbb;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">
+        <!-- Mugiez Logo SVG -->
+        
+      </div>
+      <div class="logo-text-wrap">
+       <img src="media/logo2.png" alt="" width="100px" height="60px" margin-left="0px">
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="active">HOME</a></li>
+      <li><a href="menu.php">MENU</a></li>
+      <li><a href="menu.php">ORDER NOW</a></li>
+    </ul>
+
+    <a href="tel:+0706464182" class="nav-phone-btn">
+      <i class="fa fa-phone"></i> +070 646 4182
+    </a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    
+    <img class="hero-img-left"
+         src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=600&q=80"
+         alt="Delicious pasta dish"
+         onerror="this.style.display='none'"/>
+    <img class="hero-img-right"
+         src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80"
+         alt="Grilled chicken dish"
+         onerror="this.style.display='none'"/>
+
+    <div class="hero-content">
+
+      <!-- Center logo -->
+      <div class="hero-logo">
+        <div class="hero-logo-icon">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="38" fill="none" stroke="#C0392B" stroke-width="2"/>
+            <!-- C arc -->
+            <path d="M48 20 A22 22 0 1 0 48 60" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- M letter -->
+            <text x="30" y="52" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#fff">M</text>
+            <!-- Mountain shape inside C -->
+            <path d="M14 45 L22 28 L30 42 L36 34 L42 45 Z" fill="#C0392B" opacity="0.9"/>
+          </svg>
+        </div>
+       
+      </div>
+
+      <!-- Cutlery divider -->
+      <div class="hero-divider">
+        <i class="fa fa-utensils"></i>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-title">
+        Welcome To Mugiez
+        <span class="red">Hotel And Apartments</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Delicious meals prepared for you.<br>
+        Order your favourite meals online Today
+      </p>
+
+      <!-- Navigation pills(buttons) -->
+      <div class="hero-pills">
+        <a href="home.html"><button class="hero-pill"><i class="fa fa-house"></i> Home</button></a>
+       <a href="menu.php"><button class="hero-pill"><i class="fa fa-book-open"></i> Menu</button></a> 
+       <a href=""></a> <button class="hero-pill"><i class="fa fa-plate-wheat"></i> Order</button>
+        <a href="#social-icons"><button class="hero-pill"><i class="fa fa-phone" style="text-decoration:none;"></i> Contact</button ></a>
+      </div>
+
+      <!-- CTA -->
+      <a href="menu.php"><button class="hero-cta">
+        VIEW MENU &nbsp; &rsaquo;
+      </button></a>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+
+    <!-- Contact column -->
+    <div class="info-contact">
+      <h4>For assistance contact us on;</h4>
+      <div class="contact-phone" >
+        <div class="phone-circle"><i class="fa fa-phone"></i></div>
+        <span>+070 646 4182</span>
+      </div>
+      <div class="social-icons" id="social-icons">
+       <a href="https://wa.me/256706464182"><div class="social-icon si-wa"><i class="fab fa-whatsapp"></i></div></a> 
+<a href="https://x.com/MugiezHotel?lang=en"><div class="social-icon si-tw"><i class="fab fa-twitter"></i></div></a>
+<a href="https://www.instagram.com/mugiez_hotel_and_apartments?igsh=djJ0eGJtM2ZqdW"><div class="social-icon si-ig"><i class="fab fa-instagram"></i></div></a>
+      </div>
+      <p class="info-copyright">&copy; Mugiez Hotel and Appartments.</p>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <!-- Feature icons -->
+    <div class="info-features">
+      <div class="feature-item">
+        <div class="feature-circle">
+          <i class="fa fa-bowl-food"></i>
+        </div>
+        <h5>Delicious Meals</h5>
+        <p>Fresh and tasty<br>meals everyday</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-circle">
+          <i class="fa fa-motorcycle"></i>
+        </div>
+        <h5>Fast Delivery</h5>
+        <p>Quick delivery<br>to your door</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-circle">
+          <i class="fa fa-shield-halved"></i>
+        </div>
+        <h5>Safe &amp; Reliable</h5>
+        <p>Hygienic and<br>trusted service</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-circle">
+          <i class="fa fa-headset"></i>
+        </div>
+        <h5>Great Support</h5>
+        <p>We're here to<br>help you</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    Thank you for choosing Mugiez Hotel And Apartments.
+  </div>
+
+</body>
+</html>
