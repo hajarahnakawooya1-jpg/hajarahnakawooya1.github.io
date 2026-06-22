@@ -451,6 +451,118 @@
       font-size: 12px;
       letter-spacing: 0.02em;
     }
+    /* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 15px;
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-phone-btn {
+        padding: 8px 14px;
+        font-size: 11px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-img-left,
+    .hero-img-right {
+        width: 50%;
+        opacity: 0.3;
+    }
+
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+    }
+
+    .hero-logo-name {
+        font-size: 22px;
+    }
+
+    .hero-pills {
+        gap: 8px;
+    }
+
+    .hero-pill {
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    .hero-cta {
+        padding: 12px 28px;
+        font-size: 13px;
+    }
+
+    /* INFO STRIP */
+    .info-strip {
+        flex-direction: column;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .info-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+
+    .info-features {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .feature-item {
+        flex: 0 0 45%;
+    }
+
+    .info-contact {
+        padding-right: 0;
+    }
+}
+
+/* Extra small screens (phones below 400px) */
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .feature-item {
+        flex: 0 0 100%;
+    }
+
+    .hero-pill {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+}
   </style>
 </head>
 <body>
